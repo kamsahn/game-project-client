@@ -1,7 +1,9 @@
 'use strict'
 
+const gameplayUi = require('./ui.js')
+
 const onSpaceClick = (event) => {
-  console.log('click worked')
+  gameplayUi.updateBoard(event.target)
 }
 
 module.exports = {
