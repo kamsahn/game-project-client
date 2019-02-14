@@ -1,5 +1,4 @@
 @import '~bootstrap/scss/bootstrap';
-
 $alt-color: $cyan;
 $body-bg-color: $gray-200;
 $font-color: $light;
@@ -16,10 +15,17 @@ body {
   display: flex;
   height: 200px;
   justify-content: center;
+
 }
 
 .box:hover {
   background-color: $alt-color;
+}
+
+div.flexbox {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
 }
 
 .game-board {

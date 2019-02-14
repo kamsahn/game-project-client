@@ -24,7 +24,7 @@ const uiToValue = {
 }
 
 // empty game board to start game
-const currentGameBoard = ['','','','','','','','','']
+const currentGameBoard = ['', '', '', '', '', '', '', '', '']
 
 // checks if a win has occured
 // make condition for filled array and no winner
@@ -62,6 +62,7 @@ const gameEndTest = gameBoard => {
 
 // turns off all handlers and displays winner. adds button to play again
 const endWin = winner => {
+  const winArray = ['win', winner]
   $('#space0').off('click')
   $('#space1').off('click')
   $('#space2').off('click')
@@ -71,7 +72,7 @@ const endWin = winner => {
   $('#space6').off('click')
   $('#space7').off('click')
   $('#space8').off('click')
-  return 'win'
+  return winArray
 }
 
 // displays to user that no winner was found. adds button to play again
@@ -83,8 +84,9 @@ const endDraw = () => {
 // adds marker on board to array game board and checks for winner
 // some ui happens on game end
 const updateLogic = space => {
-  playerTurn ? $(space).text(players[0]) : $(space).text(players[1])
-  playerTurn ? currentGameBoard[uiToValue[space.id]] = players[0] : currentGameBoard[uiToValue[space.id]] = players[1]
+  const currentPlayerPass = playerTurn ? players[0] : players[1]
+  $(space).text(currentPlayerPass)
+  currentGameBoard[uiToValue[space.id]] = currentPlayerPass
   const check = gameEndTest(currentGameBoard)
   if (check[0]) {
     return endWin(check[1])
@@ -93,7 +95,7 @@ const updateLogic = space => {
   }
   playerTurn = !playerTurn
   $(space).off('click')
-  return 'continue'
+  return playerTurn ? players[0] : players[1]
 }
 
 module.exports = {

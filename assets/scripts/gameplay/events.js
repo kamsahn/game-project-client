@@ -6,6 +6,11 @@ const onSpaceClick = (event) => {
   gameplayUi.updateBoard(event.target)
 }
 
+const onGameStart = event => {
+  gameplayUi.gameRun()
+}
+
 module.exports = {
-  onSpaceClick
+  onSpaceClick,
+  onGameStart
 }
