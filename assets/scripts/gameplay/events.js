@@ -1,6 +1,43 @@
 'use strict'
 
-const gameplayUi = require('./ui.js')
+const getFormFields = require('../../../lib/get-form-fields.js')
+const api = require('./api.js')
+const gameplayUi = require('./gameplayUi.js')
+const authUi = require('./authUi.js')
+
+const onSignUp = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signUp(formData)
+    .then(authUi.signUpSuccess)
+    .catch(authUi.failure)
+}
+
+const onSignIn = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signIn(formData)
+    .then(authUi.signInSuccess)
+    .catch(authUi.failure)
+}
+
+const onChangePassword = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.changePassword(formData)
+    .then(authUi.changePasswordSuccess)
+    .catch(authUi.failure)
+}
+
+const onSignOut = (event) => {
+  event.preventDefault()
+  api.signOut()
+    .then(authUi.signOutSuccess)
+    .catch(authUi.failure)
+}
 
 const onPreClick = event => {
   gameplayUi.preClick()
@@ -27,5 +64,9 @@ const onGameStart = event => {
 module.exports = {
   onSpaceClick,
   onGameStart,
-  onPreClick
+  onPreClick,
+  onSignUp,
+  onSignIn,
+  onChangePassword,
+  onSignOut
 }
