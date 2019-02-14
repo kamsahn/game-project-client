@@ -2,6 +2,10 @@
 
 const gameplayUi = require('./ui.js')
 
+const onPreClick = event => {
+  gameplayUi.preClick()
+}
+
 const onSpaceClick = (event) => {
   gameplayUi.updateBoard(event.target)
 }
@@ -22,5 +26,6 @@ const onGameStart = event => {
 
 module.exports = {
   onSpaceClick,
-  onGameStart
+  onGameStart,
+  onPreClick
 }

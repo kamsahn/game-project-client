@@ -9,7 +9,9 @@
 const events = require('./gameplay/events.js')
 
 $(() => {
+  $('.placer').on('click', events.onPreClick)
   $('#game-start').on('click', () => {
+    $('.placer').off('click')
     events.onGameStart()
   })
 })
