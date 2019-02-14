@@ -13,9 +13,8 @@ body {
   border: 1px solid $white;
   color: $font-color;
   display: flex;
-  height: 200px;
+  height: 245px;
   justify-content: center;
-
 }
 
 .box:hover {
@@ -23,11 +22,13 @@ body {
 }
 
 div.flexbox {
-  margin-top: 30px;
   display: flex;
   justify-content: center;
+  margin-top: 30px;
 }
 
-.game-board {
-  max-width: 600px;
+header {
+  background-color: $alt-color;
+  height: 100px;
+  margin-bottom: 30px;
 }
