@@ -16,7 +16,28 @@
 <body>
   <div class="container">
     <div class="row">
-      <header class="col-12"></header>
+      <header class="col-12">
+        <form id="sign-up-form">
+          <input name="credentials[email]" type="text" placeholder="email here">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="password">
+          <input type="submit" value="Sign Up">
+        </form>
+        <form id="sign-in-form">
+          <input name="credentials[email]" type="text" placeholder="email here">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input type="submit" value="Sign Up">
+        </form>
+        <form id="change-password-form">
+          <input name="passwords[old]" type="password" placeholder="old password">
+          <input name="passwords[new]" type="password" placeholder="new password">
+          <input type="submit" value="Change Password">
+        </form>
+        <form id="sign-out-form">
+          <input type="submit" value="Sign Out">
+        </form>
+        <p id="api-message"></p>
+      </header>
     </div>
     <div class="row">
       <div class="col-2">
