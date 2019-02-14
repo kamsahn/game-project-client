@@ -24,7 +24,7 @@ const uiToValue = {
 }
 
 // empty game board to start game
-const currentGameBoard = ['', '', '', '', '', '', '', '', '']
+let currentGameBoard = []
 
 // checks if a win has occured
 // make condition for filled array and no winner
@@ -98,6 +98,12 @@ const updateLogic = space => {
   return playerTurn ? players[0] : players[1]
 }
 
+const newGame = () => {
+  playerTurn = true
+  currentGameBoard = ['', '', '', '', '', '', '', '', '']
+}
+
 module.exports = {
-  updateLogic
+  updateLogic,
+  newGame
 }
