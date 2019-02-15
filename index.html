@@ -26,7 +26,7 @@
         <form id="sign-in-form">
           <input name="credentials[email]" type="text" placeholder="email here">
           <input name="credentials[password]" type="password" placeholder="password">
-          <input type="submit" value="Sign Up">
+          <input type="submit" value="Sign In">
         </form>
         <form id="change-password-form">
           <input name="passwords[old]" type="password" placeholder="old password">
@@ -39,17 +39,18 @@
         <form id="get-games-form">
           <input type="submit" value="Get Games">
         </form>
-        <form id="get-game-form">
+        <!-- <form id="get-game-form">
           <input name="game[id]" type="number" placeholder="Enter ID">
           <input type="submit" value="Get Game">
-        </form>
+        </form> -->
         <p id="api-message"></p>
       </header>
     </div>
-    <div class="row">
+    <div class="row" id="game-area">
       <div class="col-2">
         <h2>Messages:</h2>
-        <p id="user-messages"></p>
+        <p class="message-board" id="user-messages"></p>
+        <p class="message-board" id="error-messages"></p>
       </div>
       <div class="col-8 game-board">
         <div class="container">
@@ -68,7 +69,8 @@
       </div>
       <div class="col-2">
         <h2>Game Stats:</h2>
-        <p id="user-stats"></p>
+        <p class="message-board" id="user-stats"></p>
+        <p class="message-board" id="crud-message"></p>
       </div>
     </div>
     <div class="row">
