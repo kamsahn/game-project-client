@@ -36,6 +36,13 @@
         <form id="sign-out-form">
           <input type="submit" value="Sign Out">
         </form>
+        <form id="get-games-form">
+          <input type="submit" value="Get Games">
+        </form>
+        <form id="get-game-form">
+          <input name="game[id]" type="number" placeholder="Enter ID">
+          <input type="submit" value="Get Game">
+        </form>
         <p id="api-message"></p>
       </header>
     </div>
@@ -67,7 +74,9 @@
     <div class="row">
       <div class="col-5"></div>
       <div class="col-2 flexbox">
-        <button id="game-start">Start</button>
+        <form id="game-start">
+          <input type="submit" value="Start">
+        </form>
       </div>
       <div class="col-5"></div>
     </div>
