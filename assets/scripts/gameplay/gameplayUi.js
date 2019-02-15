@@ -1,6 +1,7 @@
 'use strict'
 
-const gameLogic = require('./gamelogic.js')
+const gameLogic = require('./gameLogic.js')
+const store = require('../store.js')
 
 const preClick = () => {
   $('#user-messages').text('Want to start a new game? Press the start button below the board!')
@@ -15,11 +16,13 @@ const gameRun = () => {
 const winMessage = (winner) => {
   $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#user-messages').text(`Player ${winner[1]} won!`)
+  store.over = true
 }
 
 const drawMessage = () => {
   $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#user-messages').text('There was a draw.')
+  store.over = true
 }
 
 const userErrorMessage = () => {
@@ -38,9 +41,8 @@ const updateBoard = space => {
     winMessage(check)
   } else if (check === 'draw') {
     drawMessage()
-  } else {
-    updateTurn(check, space)
   }
+  updateTurn(check, space)
 }
 
 module.exports = {

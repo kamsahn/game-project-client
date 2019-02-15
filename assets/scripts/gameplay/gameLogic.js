@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store.js')
+
 // There is one UI function happening on this page and that is placing markers
 // on the board. messages will come from ui.js
 
@@ -85,8 +87,10 @@ const endDraw = () => {
 // some ui happens on game end
 const updateLogic = space => {
   const currentPlayerPass = playerTurn ? players[0] : players[1]
+  store.currentPlayer = currentPlayerPass
   $(space).text(currentPlayerPass)
   currentGameBoard[uiToValue[space.id]] = currentPlayerPass
+  store.spaceIndex = uiToValue[space.id]
   const check = gameEndTest(currentGameBoard)
   if (check[0]) {
     return endWin(check[1])
@@ -101,9 +105,13 @@ const updateLogic = space => {
 const newGame = () => {
   playerTurn = true
   currentGameBoard = ['', '', '', '', '', '', '', '', '']
+  store.game = {
+    cells: currentGameBoard
+  }
 }
 
 module.exports = {
   updateLogic,
-  newGame
+  newGame,
+  gameEndTest
 }

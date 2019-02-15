@@ -10,12 +10,14 @@ const events = require('./gameplay/events.js')
 
 $(() => {
   $('.placer').on('click', events.onPreClick)
-  $('#game-start').on('click', () => {
+  $('#game-start').on('submit', () => {
     $('.placer').off('click')
-    events.onGameStart()
+    events.onGameStart(event)
   })
   $('#sign-up-form').on('submit', events.onSignUp)
   $('#sign-in-form').on('submit', events.onSignIn)
   $('#change-password-form').on('submit', events.onChangePassword)
   $('#sign-out-form').on('submit', events.onSignOut)
+  $('#get-games-form').on('submit', events.onGetGames)
+  $('#get-game-form').on('submit', events.onGetGame)
 })
