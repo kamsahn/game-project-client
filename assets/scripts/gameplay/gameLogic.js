@@ -65,15 +65,7 @@ const gameEndTest = gameBoard => {
 // turns off all handlers and displays winner. adds button to play again
 const endWin = winner => {
   const winArray = ['win', winner]
-  $('#space0').off('click')
-  $('#space1').off('click')
-  $('#space2').off('click')
-  $('#space3').off('click')
-  $('#space4').off('click')
-  $('#space5').off('click')
-  $('#space6').off('click')
-  $('#space7').off('click')
-  $('#space8').off('click')
+  $('.placer').off('click')
   return winArray
 }
 

@@ -97,15 +97,7 @@ const onGameStart = (event) => {
   const form = event.target
   const formData = getFormFields(form)
   $('.placer').text('')
-  $('#space0').on('click', onSpaceClick)
-  $('#space1').on('click', onSpaceClick)
-  $('#space2').on('click', onSpaceClick)
-  $('#space3').on('click', onSpaceClick)
-  $('#space4').on('click', onSpaceClick)
-  $('#space5').on('click', onSpaceClick)
-  $('#space6').on('click', onSpaceClick)
-  $('#space7').on('click', onSpaceClick)
-  $('#space8').on('click', onSpaceClick)
+  $('.placer').on('click', onSpaceClick)
   gameplayUi.gameRun()
   onCreateGame(event, formData)
 }

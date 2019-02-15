@@ -9,6 +9,11 @@
 const events = require('./gameplay/events.js')
 
 $(() => {
+  $('#game-start').hide()
+  $('#change-password-form').hide()
+  $('#sign-out-form').hide()
+  $('#get-games-form').hide()
+  $('#game-area').hide()
   $('.placer').on('click', events.onPreClick)
   $('#game-start').on('submit', () => {
     $('.placer').off('click')
@@ -19,5 +24,6 @@ $(() => {
   $('#change-password-form').on('submit', events.onChangePassword)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#get-games-form').on('submit', events.onGetGames)
-  $('#get-game-form').on('submit', events.onGetGame)
+  $('#api-message').text('Sign in to play')
+  // $('#get-game-form').on('submit', events.onGetGame)
 })
