@@ -11,7 +11,7 @@ HTML - Bootstrap
 
 CSS - SCSS
 
-## Strategy
+## Strategy:
 
 ### Step 1: Planning
 
@@ -24,7 +24,9 @@ After reviewing the given material, I had a vague idea of what I wanted my end p
 Wireframes:
 
 [Wireframe overview](http://i.imgur.com/ryZa4hE.jpg)
+
 [individual wireframes part 1](http://i.imgur.com/cAYQRD2.jpg)
+
 [individual wireframes part 2](http://i.imgur.com/fBWHBmo.jpg)
 
 User stories:
