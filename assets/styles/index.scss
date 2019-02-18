@@ -24,11 +24,13 @@ body {
 div.flexbox {
   display: flex;
   justify-content: center;
-  margin-top: 30px;
 }
 
 header {
   background-color: $alt-color;
-  margin-bottom: 30px;
-  padding: 30px;
+  padding: 20px;
+}
+
+.start-button {
+  margin: 10px;
 }
