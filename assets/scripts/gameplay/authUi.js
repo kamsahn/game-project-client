@@ -57,7 +57,7 @@ const signOutSuccess = () => {
 
 const failure = () => {
   $('.message-board').text('')
-  $('#user-messages').text('There was an error.')
+  $('#api-message').text('There was an error.')
   $('form').trigger('reset')
   setTimeout(() => {
     $('#api-message').text('')
