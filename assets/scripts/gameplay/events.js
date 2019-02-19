@@ -86,6 +86,7 @@ const onGameStart = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
+  $('#api-message').text('')
   $('.placer').text('')
   $('.placer').on('click', onSpaceClick)
   gameplayUi.gameRun()

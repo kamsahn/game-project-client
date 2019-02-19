@@ -4,16 +4,16 @@ const store = require('../store.js')
 
 const signUpSuccess = () => {
   $('.message-board').text('')
-  $('#api-message').text('Successfully signed up.')
+  $('#api-message').text('Successfully signed up. Sign in to play')
   $('form').trigger('reset')
   setTimeout(() => {
-    $('#api-message').text('')
+    $('#api-message').text('Sign in to play')
   }, 5000)
 }
 
 const signInSuccess = (responseData) => {
   $('.message-board').text('')
-  $('#api-message').text('Successfully signed in.')
+  $('#api-message').text('Successfully signed in')
   $('form').trigger('reset')
   store.user = responseData.user
   $('#game-area').show()
@@ -23,14 +23,12 @@ const signInSuccess = (responseData) => {
   $('#get-games-form').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
-  setTimeout(() => {
-    $('#api-message').text('')
-  }, 5000)
+  $('#error-messages').text('Press Start to play')
 }
 
 const changePasswordSuccess = () => {
   $('.message-board').text('')
-  $('#api-message').text('Successfully changed password.')
+  $('#api-message').text('Successfully changed password')
   $('form').trigger('reset')
   setTimeout(() => {
     $('#api-message').text('')
@@ -39,7 +37,7 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
   $('.message-board').text('')
-  $('#api-message').text('Successfully signed out.')
+  $('#api-message').text('Successfully signed out. Sign back in to play')
   $('form').trigger('reset')
   $('#game-start').hide()
   $('#change-password-form').hide()
@@ -51,13 +49,13 @@ const signOutSuccess = () => {
   $('#game-area').hide()
   store.user = null
   setTimeout(() => {
-    $('#api-message').text('Sign in to play')
+    $('#api-message').text('Sign back in to play')
   }, 5000)
 }
 
 const failure = () => {
   $('.message-board').text('')
-  $('#api-message').text('There was an error.')
+  $('#api-message').text('There was an error')
   $('form').trigger('reset')
   setTimeout(() => {
     $('#api-message').text('')
