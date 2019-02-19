@@ -38,21 +38,27 @@ const onUpdateGame = (player, space, over) => {
     .catch(crudUi.failure)
 }
 
-const onSignUp = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.signUp(formData)
-    .then(authUi.signUpSuccess)
-    .catch(authUi.failure)
-}
-
 const onSignIn = (event) => {
   event.preventDefault()
   const form = event.target
   const formData = getFormFields(form)
   api.signIn(formData)
     .then(authUi.signInSuccess)
+    .catch(authUi.failure)
+}
+
+const onSignUp = (event) => {
+  event.preventDefault()
+  const form = event.target
+  const formData = getFormFields(form)
+  api.signUp(formData)
+    .then(authUi.signUpSuccess)
+    .then(() => {
+      onSignIn(event)
+    })
+    .then(() => {
+      $('form').trigger('reset')
+    })
     .catch(authUi.failure)
 }
 

@@ -5,10 +5,10 @@ const store = require('../store.js')
 const signUpSuccess = () => {
   $('.message-board').text('')
   $('#api-message').text('Successfully signed up. Sign in to play')
-  $('form').trigger('reset')
-  setTimeout(() => {
-    $('#api-message').text('Sign in to play')
-  }, 5000)
+  // $('form').trigger('reset')
+  // setTimeout(() => {
+  //   $('#api-message').text('Sign in to play')
+  // }, 5000)
 }
 
 const signInSuccess = (responseData) => {
