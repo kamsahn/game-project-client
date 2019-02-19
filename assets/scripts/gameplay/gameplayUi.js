@@ -10,6 +10,20 @@ const preClick = () => {
   }, 5000)
 }
 
+const prePreUndo = () => {
+  $('#error-messages').text('Make a move before you undo!')
+  setTimeout(() => {
+    $('#error-messages').text('')
+  }, 5000)
+}
+
+const preUndo = () => {
+  $('#error-messages').text('Make another move before you undo again!')
+  setTimeout(() => {
+    $('#error-messages').text('')
+  }, 5000)
+}
+
 const gameRun = () => {
   $('#user-messages').text('')
   $('#error-messages').text('')
@@ -21,14 +35,16 @@ const winMessage = (winner) => {
   $('.placer').on('click', preClick)
   $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#user-messages').text(`Player ${winner[1]} won!`)
-  store.over = true
+  $('#undo').hide()
+  store.game.over = true
 }
 
 const drawMessage = () => {
   $('.placer').on('click', preClick)
   $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#user-messages').text('There was a draw.')
-  store.over = true
+  $('#undo').hide()
+  store.game.over = true
 }
 
 const userErrorMessage = () => {
@@ -55,8 +71,19 @@ const updateBoard = space => {
   updateTurn(check, space)
 }
 
+const undoBoard = space => {
+  $('#user-messages').text('')
+  $(space).text('')
+  store.game.cells = store.previousCells.slice()
+  gameLogic.undoLogic(store.currentPlayer)
+  $('#user-stats').text(`Player ${store.currentPlayer}, it's your turn!`)
+}
+
 module.exports = {
   updateBoard,
+  undoBoard,
   gameRun,
-  preClick
+  preClick,
+  preUndo,
+  prePreUndo
 }

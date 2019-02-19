@@ -87,7 +87,15 @@ const onPreClick = (event) => {
   gameplayUi.preClick()
 }
 
+const onPreUndo = (event) => {
+  event.preventDefault()
+  gameplayUi.preUndo()
+}
+
 const onSpaceClick = (event) => {
+  store.space = event
+  $('#undo').off('submit')
+  $('#undo').on('submit', onUndo)
   gameplayUi.updateBoard(event.target)
   onUpdateGame(store.currentPlayer, store.spaceIndex, store.over)
   // player and space marked and game end state
@@ -104,6 +112,23 @@ const onGameStart = (event) => {
   onCreateGame(event, formData)
 }
 
+const onUndo = (event) => {
+  event.preventDefault()
+  const isBlank = elem => {
+    return elem === ''
+  }
+  if (!store.game.cells.every(isBlank)) {
+    gameplayUi.undoBoard(store.space.target)
+    onUpdateGame('', store.spaceIndex, store.over)
+    $(store.space.target).off('click')
+    $(store.space.target).on('click', onSpaceClick)
+    $('#undo').off('submit')
+    $('#undo').on('submit', onPreUndo)
+  } else {
+    gameplayUi.prePreUndo()
+  }
+}
+
 module.exports = {
   onSpaceClick,
   onGameStart,
@@ -115,5 +140,6 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onGetGames,
-  onUpdateGame
+  onUpdateGame,
+  onUndo
 }

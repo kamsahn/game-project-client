@@ -6,6 +6,7 @@ const gameLogic = require('./gameLogic.js')
 const createGameSuccess = (responseData) => {
   store.game = responseData.game
   store.over = responseData.game.over
+  $('#undo').show()
 }
 
 const formGameStats = (games) => {

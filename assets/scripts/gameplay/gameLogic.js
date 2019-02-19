@@ -81,17 +81,22 @@ const updateLogic = space => {
   const currentPlayerPass = playerTurn ? players[0] : players[1]
   store.currentPlayer = currentPlayerPass
   $(space).text(currentPlayerPass)
-  currentGameBoard[uiToValue[space.id]] = currentPlayerPass
+  store.previousCells = store.game.cells.slice()
+  store.game.cells[uiToValue[space.id]] = currentPlayerPass
   store.spaceIndex = uiToValue[space.id]
-  const check = gameEndTest(currentGameBoard)
+  const check = gameEndTest(store.game.cells)
   if (check[0]) {
     return endWin(check[1])
-  } else if (!currentGameBoard.includes('')) {
+  } else if (!store.game.cells.includes('')) {
     return endDraw()
   }
   playerTurn = !playerTurn
   $(space).off('click')
   return playerTurn ? players[0] : players[1]
+}
+
+const undoLogic = player => {
+  player === players[0] ? playerTurn = true : playerTurn = false
 }
 
 const newGame = () => {
@@ -104,6 +109,7 @@ const newGame = () => {
 
 module.exports = {
   updateLogic,
+  undoLogic,
   newGame,
   gameEndTest
 }

@@ -61,17 +61,6 @@ const getGames = (formData) => {
   })
 }
 
-const getGame = (formData) => {
-  return $.ajax({
-    url: config.apiUrl + `/games/${formData.game.id}`,
-    method: 'GET',
-    headers: {
-      Authorization: 'Token token=' + store.user.token
-    },
-    data: formData
-  })
-}
-
 const updateGame = (data) => {
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
@@ -90,6 +79,5 @@ module.exports = {
   signOut,
   createGame,
   getGames,
-  getGame,
   updateGame
 }

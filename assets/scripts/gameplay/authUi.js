@@ -17,7 +17,6 @@ const signInSuccess = (responseData) => {
   $('#init-change-password-form').show()
   $('#sign-out-form').show()
   $('#get-games-form').show()
-  $('#undo').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   $('#error-messages').text('Press Start to play')

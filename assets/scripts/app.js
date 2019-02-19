@@ -27,5 +27,6 @@ $(() => {
   $('#init-change-password-form').on('submit', events.onInitChangePassword)
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#get-games-form').on('submit', events.onGetGames)
+  $('#undo').on('submit', events.onUndo)
   $('#api-message').text('Sign in to play')
 })
