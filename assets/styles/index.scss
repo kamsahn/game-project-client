@@ -42,7 +42,7 @@ body {
 
 .form-wrap {
   display: block;
-  margin: 0 25%;
+  margin: 0 20%;
   text-align: center;
 }
 
@@ -73,14 +73,14 @@ header {
   margin: auto;
   padding: 20px;
 
-  > p.message-board {
+  > .message-board {
     color: $body-bg-color;
   }
 }
 
 input {
   border-radius: 5px;
-  max-width: 150px;
+  max-width: 160px;
 }
 
 .message-board {
@@ -95,6 +95,7 @@ input {
   flex-direction: column;
   height: 140px;
   justify-content: center;
+  margin-bottom: 10px;
 }
 
 .start-btn {
@@ -105,4 +106,30 @@ input {
   height: 70px;
   margin: 10px;
   width: 210px;
+}
+@media (max-width: 769px) {
+  body {
+    font-size: 1.5em;
+  }
+
+  form {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .form-wrap {
+    margin: 0 10%;
+  }
+
+  input {
+    margin-bottom: .25em;
+    min-width: 60%;
+  }
+
+  .message-board-wrap {
+    height: 140px;
+  }
+
 }
