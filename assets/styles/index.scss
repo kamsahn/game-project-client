@@ -28,8 +28,10 @@ body {
 }
 
 .button {
-  background-color: $body-bg-color;
-  border-radius: 7px;
+  background-color: $alt-color;
+  border: thick solid $body-bg-color;
+  border-radius: 20px;
+  color: $body-bg-color;
   opacity: .75;
 }
 
@@ -40,6 +42,7 @@ body {
 
 .form-wrap {
   display: block;
+  margin: 0 25%;
   text-align: center;
 }
 
@@ -49,8 +52,8 @@ form {
 
 .game-area {
   margin: auto;
-  max-height: 90vh;
-  max-width: 90vh;
+  max-height: 50vh;
+  max-width: 50vh;
   width: 90%;
 }
 
@@ -59,11 +62,20 @@ form {
   flex-wrap: wrap;
 }
 
+h1 {
+  color: $alt-color;
+  margin: 15px;
+}
+
 header {
   background-color: $alt-color;
   border-radius: 15px;
-  margin: 10px;
+  margin: auto;
   padding: 20px;
+
+  > p.message-board {
+    color: $body-bg-color;
+  }
 }
 
 input {
@@ -71,14 +83,26 @@ input {
   max-width: 150px;
 }
 
+.message-board {
+  color: $alt-color;
+  height: 25px;
+  margin: 5px;
+}
+
 .message-board-wrap {
   align-items: center;
   display: flex;
   flex-direction: column;
-  height: 175px;
+  height: 140px;
   justify-content: center;
 }
 
 .start-btn {
+  background-color: $body-bg-color;
+  border: thick solid $alt-color;
+  border-radius: 35px;
+  color: $alt-color;
+  height: 70px;
   margin: 10px;
+  width: 210px;
 }
