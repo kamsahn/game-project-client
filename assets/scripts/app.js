@@ -15,6 +15,7 @@ $(() => {
   $('#sign-out-form').hide()
   $('#get-games-form').hide()
   $('#game-area').hide()
+  $('#undo').hide()
   $('.placer').on('click', events.onPreClick)
   $('#game-start').on('submit', () => {
     $('.placer').off('click')

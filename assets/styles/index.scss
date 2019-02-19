@@ -107,6 +107,14 @@ input {
   margin: 10px;
   width: 210px;
 }
+
+.undo-btn {
+  background-color: $body-bg-color;
+  border: medium solid $alt-color;
+  color: $alt-color;
+  margin: 10px;
+}
+
 @media (max-width: 769px) {
   body {
     font-size: 1.5em;
