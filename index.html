@@ -29,10 +29,13 @@
           <input name="credentials[password]" type="password" placeholder="password">
           <input class="button" type="submit" value="Sign In">
         </form>
-        <form class="my-1 col-12" id="change-password-form">
-          <input class="change-password-area" name="passwords[old]" type="password" placeholder="old password">
-          <input class="change-password-area" name="passwords[new]" type="password" placeholder="new password">
+        <form class="my-1 col-12" id="init-change-password-form">
           <input class="button" type="submit" value="Change Password">
+        </form>
+        <form class="my-1 col-12" id="change-password-form">
+          <input class="ch-pass-area" name="passwords[old]" type="password" placeholder="old password">
+          <input class="ch-pass-area" name="passwords[new]" type="password" placeholder="new password">
+          <input id="ch-pass-button" class="button" type="submit" value="Change Password">
         </form>
         <form class="my-1 col-12" id="get-games-form">
           <input class="button" type="submit" value="Get Games">

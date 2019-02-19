@@ -29,7 +29,7 @@ body {
 
 .button {
   background-color: $alt-color;
-  border: thick solid $body-bg-color;
+  border: medium solid $body-bg-color;
   border-radius: 20px;
   color: $body-bg-color;
   opacity: .75;
@@ -100,7 +100,7 @@ input {
 
 .start-btn {
   background-color: $body-bg-color;
-  border: thick solid $alt-color;
+  border: medium solid $alt-color;
   border-radius: 35px;
   color: $alt-color;
   height: 70px;
@@ -126,10 +126,6 @@ input {
   input {
     margin-bottom: .25em;
     min-width: 60%;
-  }
-
-  .message-board-wrap {
-    height: 140px;
   }
 
 }
