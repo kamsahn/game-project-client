@@ -4,7 +4,13 @@ $body-bg-color: $gray-200;
 $font-color: $light;
 
 body {
+  align-items: center;
   background-color: $body-bg-color;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100vh;
+  min-width: 100vh;
 }
 
 .box {
@@ -13,24 +19,66 @@ body {
   border: 1px solid $white;
   color: $font-color;
   display: flex;
-  height: 245px;
   justify-content: center;
+  min-height: calc(100% / 3);
+
+  &:hover {
+    background-color: $alt-color;
+  }
 }
 
-.box:hover {
-  background-color: $alt-color;
+.button {
+  background-color: $body-bg-color;
+  border-radius: 7px;
+  opacity: .75;
 }
 
-div.flexbox {
+.flexbox {
   display: flex;
   justify-content: center;
 }
 
+.form-wrap {
+  display: block;
+  text-align: center;
+}
+
+form {
+  display: inline-block;
+}
+
+.game-area {
+  margin: auto;
+  max-height: 90vh;
+  max-width: 90vh;
+  width: 90%;
+}
+
+.game-board {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 header {
   background-color: $alt-color;
+  border-radius: 15px;
+  margin: 10px;
   padding: 20px;
 }
 
-.start-button {
+input {
+  border-radius: 5px;
+  max-width: 150px;
+}
+
+.message-board-wrap {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 175px;
+  justify-content: center;
+}
+
+.start-btn {
   margin: 10px;
 }
