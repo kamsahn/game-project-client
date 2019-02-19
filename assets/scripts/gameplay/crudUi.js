@@ -34,16 +34,6 @@ const getGamesSuccess = (responseData) => {
   }, 5000)
 }
 
-// const getGameSuccess = (responseData) => {
-//   $('form').trigger('reset')
-//   $('#user-stats').html(responseData.game.id + ': ' + responseData.game.cells)
-// }
-
-// const updateGameSuccess = (responseData) => {
-//   $('#api-message').text('Updated game')
-//   // $('#crud-message').html(responseData.game.id + ': ' + responseData.game.cells)
-// }
-
 const failure = () => {
   $('#user-messages').text('There was an error.')
   $('form').trigger('reset')

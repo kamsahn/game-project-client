@@ -4,7 +4,7 @@ const gameLogic = require('./gameLogic.js')
 const store = require('../store.js')
 
 const preClick = () => {
-  $('#error-messages').text('Want to start a new game? Press the start button below the board!')
+  $('#error-messages').text('Want to start a new game? Press the start button above the board!')
   setTimeout(() => {
     $('#error-messages').text('')
   }, 5000)

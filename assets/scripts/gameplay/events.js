@@ -23,15 +23,6 @@ const onGetGames = (event) => {
     .catch(crudUi.getGames)
 }
 
-const onGetGame = (event) => {
-  event.preventDefault()
-  const form = event.target
-  const formData = getFormFields(form)
-  api.getGame(formData)
-    .then(crudUi.getGameSuccess)
-    .catch(crudUi.failure)
-}
-
 const onUpdateGame = (player, space, over) => {
   const data =
   {
@@ -44,7 +35,6 @@ const onUpdateGame = (player, space, over) => {
     }
   }
   api.updateGame(data)
-    .then(crudUi.updateGameSuccess)
     .catch(crudUi.failure)
 }
 
@@ -89,7 +79,7 @@ const onPreClick = (event) => {
 const onSpaceClick = (event) => {
   gameplayUi.updateBoard(event.target)
   onUpdateGame(store.currentPlayer, store.spaceIndex, store.over)
-  // player and space marked
+  // player and space marked and game end state
 }
 
 const onGameStart = (event) => {
@@ -112,6 +102,5 @@ module.exports = {
   onSignOut,
   onCreateGame,
   onGetGames,
-  onGetGame,
   onUpdateGame
 }

@@ -25,5 +25,4 @@ $(() => {
   $('#sign-out-form').on('submit', events.onSignOut)
   $('#get-games-form').on('submit', events.onGetGames)
   $('#api-message').text('Sign in to play')
-  // $('#get-game-form').on('submit', events.onGetGame)
 })
