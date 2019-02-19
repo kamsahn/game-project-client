@@ -56,6 +56,11 @@ const onSignIn = (event) => {
     .catch(authUi.failure)
 }
 
+const onInitChangePassword = (event) => {
+  event.preventDefault()
+  authUi.initChangePasswordSuccess()
+}
+
 const onChangePassword = (event) => {
   event.preventDefault()
   const form = event.target
@@ -100,6 +105,7 @@ module.exports = {
   onSignUp,
   onSignIn,
   onChangePassword,
+  onInitChangePassword,
   onSignOut,
   onCreateGame,
   onGetGames,

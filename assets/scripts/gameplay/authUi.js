@@ -18,7 +18,7 @@ const signInSuccess = (responseData) => {
   store.user = responseData.user
   $('#game-area').show()
   $('#game-start').show()
-  $('#change-password-form').show()
+  $('#init-change-password-form').show()
   $('#sign-out-form').show()
   $('#get-games-form').show()
   $('#sign-up-form').hide()
@@ -26,7 +26,16 @@ const signInSuccess = (responseData) => {
   $('#error-messages').text('Press Start to play')
 }
 
+const initChangePasswordSuccess = () => {
+  $('.message-board').text('')
+  $('form').trigger('reset')
+  $('#init-change-password-form').hide()
+  $('#change-password-form').show()
+}
+
 const changePasswordSuccess = () => {
+  $('#change-password-form').hide()
+  $('#init-change-password-form').show()
   $('.message-board').text('')
   $('#api-message').text('Successfully changed password')
   $('form').trigger('reset')
@@ -41,6 +50,7 @@ const signOutSuccess = () => {
   $('form').trigger('reset')
   $('#game-start').hide()
   $('#change-password-form').hide()
+  $('#init-change-password-form').hide()
   $('#sign-out-form').hide()
   $('#get-games-form').hide()
   $('#sign-up-form').show()
@@ -66,6 +76,7 @@ module.exports = {
   signUpSuccess,
   signInSuccess,
   changePasswordSuccess,
+  initChangePasswordSuccess,
   signOutSuccess,
   failure
 }
