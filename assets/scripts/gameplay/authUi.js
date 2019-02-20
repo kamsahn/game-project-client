@@ -12,14 +12,17 @@ const signInSuccess = (responseData) => {
   $('#api-message').text('Successfully signed in')
   $('form').trigger('reset')
   store.user = responseData.user
-  $('#game-area').show()
-  $('#game-start').show()
+  $('#game-area').fadeIn()
+  $('#game-start').fadeIn()
   $('#init-change-password-form').show()
   $('#sign-out-form').show()
   $('#get-games-form').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
   $('#error-messages').text('Press Start to play')
+  setTimeout(() => {
+    $('#api-message').text('')
+  }, 5000)
 }
 
 const initChangePasswordSuccess = () => {

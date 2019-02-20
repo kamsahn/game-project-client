@@ -6,7 +6,6 @@ const gameLogic = require('./gameLogic.js')
 const createGameSuccess = (responseData) => {
   store.game = responseData.game
   store.over = responseData.game.over
-  // over is stored (and updated) in store.game.over
   $('#undo').show()
 }
 
@@ -31,6 +30,7 @@ const formGameStats = (games) => {
 
 const getGamesSuccess = (responseData) => {
   $('#crud-message').html(formGameStats(responseData.games))
+  console.log(responseData.games)
   setTimeout(() => {
     $('#crud-message').html('')
   }, 5000)
