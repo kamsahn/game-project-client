@@ -19,6 +19,7 @@ const signInSuccess = (responseData) => {
   $('#get-games-form').show()
   $('#sign-up-form').hide()
   $('#sign-in-form').hide()
+  $('#footer').hide()
   $('#error-messages').text('Press Start to play')
   setTimeout(() => {
     $('#api-message').text('')
@@ -55,6 +56,7 @@ const signOutSuccess = () => {
   $('#undo').hide()
   $('#sign-up-form').show()
   $('#sign-in-form').show()
+  $('#footer').show()
   $('.placer').text('')
   $('#game-area').hide()
   store.user = null
