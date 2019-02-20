@@ -30,7 +30,6 @@ const formGameStats = (games) => {
 
 const getGamesSuccess = (responseData) => {
   $('#crud-message').html(formGameStats(responseData.games))
-  console.log(responseData.games)
   setTimeout(() => {
     $('#crud-message').html('')
   }, 6000)
