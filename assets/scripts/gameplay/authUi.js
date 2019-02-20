@@ -46,7 +46,7 @@ const changePasswordSuccess = () => {
 
 const signOutSuccess = () => {
   $('.message-board').text('')
-  $('#api-message').text('Successfully signed out. Sign back in to play')
+  $('#api-message').text('Successfully signed out')
   $('form').trigger('reset')
   $('#game-start').hide()
   $('#change-password-form').hide()

@@ -33,7 +33,7 @@ const getGamesSuccess = (responseData) => {
   console.log(responseData.games)
   setTimeout(() => {
     $('#crud-message').html('')
-  }, 5000)
+  }, 6000)
 }
 
 const failure = () => {
