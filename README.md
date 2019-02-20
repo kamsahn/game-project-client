@@ -15,7 +15,7 @@ CSS - SCSS
 
 ### Step 1: Planning
 
-Given the project [requirements](https://git.generalassemb.ly/ga-wdi-boston/game-project), my first task was to create a checklist of all action items. Essentially anything that was going to be checked at the end of the project was added to the list. After reviewing this list, I reviewed similar works (using jQuery and AJAX for crud and authentication). Finally, I reviewed the assignment documentation for information on the given API and how to interact with it.
+Given the project requirements, my first task was to create a checklist of all action items. Essentially anything that was going to be checked at the end of the project was added to the list. After reviewing this list, I reviewed similar works (using jQuery and AJAX for crud and authentication). Finally, I reviewed the assignment documentation for information on the given API and how to interact with it.
 
 ### Step 2: User stories and wireframes
 
@@ -44,7 +44,7 @@ User stories:
 
 ### Step 3: Implementation
 
-Following the [suggested schedule](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/schedule.md), I first created a basic game board that a user could populate with X's and O's, largely with html and Bootstrap. I then wrote the game engine with Javascript that would switch between players X and O as well as check for the game end conditions. After this, I wrote my jQuery/AJAX requests to the given API so that users could sign in and save individual game instances that could be viewed later. I wrote out user feedback messages and triggers and touched up the gameboard with another round of bootstrap and css/scss. I then tested, found some bugs and fixed them. With some extra time, I made and tested an undo button for my gameboard.
+Following the suggested schedule, I first created a basic game board that a user could populate with X's and O's, largely with html and Bootstrap. I then wrote the game engine with Javascript that would switch between players X and O as well as check for the game end conditions. After this, I wrote my jQuery/AJAX requests to the given API so that users could sign in and save individual game instances that could be viewed later. I wrote out user feedback messages and triggers and touched up the gameboard with another round of bootstrap and css/scss. I then tested, found some bugs and fixed them. With some extra time, I made and tested an undo button for my gameboard.
 
 ## Unsolved Issues:
 
