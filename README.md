@@ -44,11 +44,12 @@ User stories:
 
 ### Step 3: Implementation
 
-Following the [suggested schedule](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/schedule.md), I first created a basic game board that a user could populate with X's and O's, largely with html and Bootstrap. I then wrote the game engine with Javascript that would switch between players X and O as well as check for the game end conditions. After this, I wrote my jQuery/AJAX requests to the given API so that users could sign in and save individual game instances that could be viewed later. Finally I wrote out user feedback messages and triggers and touched out the gameboard with another round of bootstrap and css/scss.
+Following the [suggested schedule](https://git.generalassemb.ly/ga-wdi-boston/game-project/blob/master/schedule.md), I first created a basic game board that a user could populate with X's and O's, largely with html and Bootstrap. I then wrote the game engine with Javascript that would switch between players X and O as well as check for the game end conditions. After this, I wrote my jQuery/AJAX requests to the given API so that users could sign in and save individual game instances that could be viewed later. I wrote out user feedback messages and triggers and touched up the gameboard with another round of bootstrap and css/scss. I then tested, found some bugs and fixed them. With some extra time, I made and tested an undo button for my gameboard.
 
 ## Unsolved Issues:
 
 Given more time on this project, I would add the following features to my app:
-- Undo button during game
 - Dual sign in
 - Multi-device game support
+- prevent simultaneous sign in issues
+- Additional media queries to account for more sizes
