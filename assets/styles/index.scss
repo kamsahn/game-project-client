@@ -1,16 +1,15 @@
 @import '~bootstrap/scss/bootstrap';
-
 $alt-button: #e37222;
 $alt-color: #66b9bf;
 $body-bg-color: $gray-200;
 $box-color: #eeaa7b;
 $font-color: $light;
 $heading-color: #07889b;
+$hearts: #ff3232;
 
 body {
   align-items: center;
-  background-color: $body-bg-color;
-  background-image: url('public/bckgrd.png');
+  background-image: url("public/bckgrd.png");
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -52,6 +51,12 @@ body {
   justify-content: center;
 }
 
+footer {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
 .form-wrap {
   display: block;
   margin: 0 20%;
@@ -63,8 +68,7 @@ form {
 }
 
 .game-area {
-  margin: auto;
-  margin-bottom: 10px;
+  margin: auto auto 10px;
   max-height: 50vh;
   max-width: 50vh;
   width: 90%;
@@ -115,6 +119,10 @@ p:hover {
   color: $heading-color;
 }
 
+span {
+  color: $hearts;
+}
+
 .start-btn {
   background-color: $body-bg-color;
   border: medium solid $alt-color;
@@ -149,13 +157,11 @@ p:hover {
     min-width: 60%;
   }
 }
-
 @media (max-width: 769px) {
   body {
     font-size: 1.15em;
   }
 }
-
 @media (max-width: 415px) {
   body {
     font-size: 1.4em;
