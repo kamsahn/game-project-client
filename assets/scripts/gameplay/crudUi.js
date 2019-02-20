@@ -6,6 +6,7 @@ const gameLogic = require('./gameLogic.js')
 const createGameSuccess = (responseData) => {
   store.game = responseData.game
   store.over = responseData.game.over
+  // over is stored (and updated) in store.game.over
   $('#undo').show()
 }
 
@@ -46,7 +47,5 @@ const failure = () => {
 module.exports = {
   createGameSuccess,
   getGamesSuccess,
-  // getGameSuccess,
-  // updateGameSuccess,
   failure
 }

@@ -97,7 +97,7 @@ const onSpaceClick = (event) => {
   $('#undo').off('submit')
   $('#undo').on('submit', onUndo)
   gameplayUi.updateBoard(event.target)
-  onUpdateGame(store.currentPlayer, store.spaceIndex, store.over)
+  onUpdateGame(store.currentPlayer, store.spaceIndex, store.game.over)
   // player and space marked and game end state
 }
 

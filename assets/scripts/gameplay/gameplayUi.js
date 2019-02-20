@@ -33,8 +33,8 @@ const gameRun = () => {
 
 const winMessage = (winner) => {
   $('.placer').on('click', preClick)
-  $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#user-messages').text(`Player ${winner[1]} won!`)
+  $('#user-stats').text('Want to play again? Hit the Start button.')
   $('#undo').hide()
   store.game.over = true
 }
@@ -55,9 +55,9 @@ const userErrorMessage = () => {
 }
 
 const updateTurn = (player, space) => {
+  $('#error-messages').text('')
   $(space).on('click', userErrorMessage)
   $('#user-stats').text(`Player ${player}, it's your turn!`)
-  $('#error-messages').text('')
 }
 
 const updateBoard = space => {

@@ -5,7 +5,7 @@ const store = require('../store.js')
 // There is one UI function happening on this page and that is placing markers
 // on the board. messages will come from ui.js
 
-// two possible plater options
+// two possible player options
 const players = ['X', 'O']
 
 // playerTurn used to switch between players (true/false, on/off)
@@ -24,9 +24,6 @@ const uiToValue = {
   space7: 7,
   space8: 8
 }
-
-// empty game board to start game
-let currentGameBoard = []
 
 // checks if a win has occured
 // make condition for filled array and no winner
@@ -95,16 +92,14 @@ const updateLogic = space => {
   return playerTurn ? players[0] : players[1]
 }
 
+// switches the current player back to the previous player
 const undoLogic = player => {
   player === players[0] ? playerTurn = true : playerTurn = false
 }
 
+// initializes game with player X
 const newGame = () => {
   playerTurn = true
-  currentGameBoard = ['', '', '', '', '', '', '', '', '']
-  store.game = {
-    cells: currentGameBoard
-  }
 }
 
 module.exports = {
