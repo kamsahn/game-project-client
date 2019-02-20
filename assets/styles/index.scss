@@ -131,11 +131,7 @@ p:hover {
   margin: 10px;
 }
 
-@media (max-width: 769px) {
-  body {
-    font-size: 1.5em;
-  }
-
+@media (max-width: 991px) {
   form {
     align-items: center;
     display: flex;
@@ -151,5 +147,16 @@ p:hover {
     margin-bottom: .25em;
     min-width: 60%;
   }
+}
 
+@media (max-width: 769px) {
+  body {
+    font-size: 1.15em;
+  }
+}
+
+@media (max-width: 415px) {
+  body {
+    font-size: 1.4em;
+  }
 }
