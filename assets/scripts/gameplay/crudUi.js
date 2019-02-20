@@ -24,7 +24,7 @@ const formGameStats = (games) => {
     }
   }
   const playerStats = (`
-    <p>${store.user.email} has won ${gamesWon} games out of ${games.length} games</p>
+    <p>${store.user.email} has won ${gamesWon} of ${games.length} games as player 'X'</p>
     `)
   return playerStats
 }
