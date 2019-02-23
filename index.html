@@ -19,17 +19,18 @@
   <div class="container">
     <div class="form-wrap row">
       <header class="col-12">
+        <form class="my-1 col-12" id="sign-in-form">
+          <input name="credentials[email]" type="text" placeholder="email here">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input class="button" type="submit" value="Sign In">
+        </form>
         <form class="my-1 col-12" id="sign-up-form">
           <input name="credentials[email]" type="text" placeholder="email here">
           <input name="credentials[password]" type="password" placeholder="password">
           <input name="credentials[password_confirmation]" type="password" placeholder="password confirm">
           <input class="button" type="submit" value="Sign Up">
         </form>
-        <form class="my-1 col-12" id="sign-in-form">
-          <input name="credentials[email]" type="text" placeholder="email here">
-          <input name="credentials[password]" type="password" placeholder="password">
-          <input class="button" type="submit" value="Sign In">
-        </form>
+        <p id="sign-toggle">New here? <span id="toggle">Sign Up</span></p>
         <form class="my-1 col-12" id="init-change-password-form">
           <input class="button" type="submit" value="Change Password">
         </form>

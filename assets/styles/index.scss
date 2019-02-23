@@ -9,7 +9,7 @@ $hearts: #ff3232;
 
 body {
   align-items: center;
-  background-image: url("public/bckgrd.png");
+  background-image: url('public/bckgrd.png');
   background-repeat: repeat;
   display: flex;
   flex-direction: column;
@@ -43,6 +43,7 @@ body {
   &:hover {
     border-color: $alt-button;
     color: $alt-button;
+    cursor: pointer;
   }
 }
 
@@ -94,6 +95,14 @@ header {
   > .message-board {
     color: $body-bg-color;
   }
+  > p {
+    color: $font-color;
+  }
+}
+
+.hearts {
+  color: $hearts;
+  text-decoration: none;
 }
 
 input {
@@ -116,12 +125,12 @@ input {
   margin-bottom: 10px;
 }
 
-p:hover {
-  color: $heading-color;
-}
-
 span {
-  color: $hearts;
+  text-decoration: underline;
+  &:hover {
+    color: $heading-color;
+    cursor: pointer;
+  }
 }
 
 .start-btn {

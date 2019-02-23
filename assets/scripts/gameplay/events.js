@@ -129,6 +129,12 @@ const onUndo = (event) => {
   }
 }
 
+const onToggleClick = (event) => {
+  event.preventDefault()
+  authUi.toggle()
+  $('#toggle').on('click', onToggleClick)
+}
+
 module.exports = {
   onSpaceClick,
   onGameStart,
@@ -141,5 +147,6 @@ module.exports = {
   onCreateGame,
   onGetGames,
   onUpdateGame,
-  onUndo
+  onUndo,
+  onToggleClick
 }

@@ -10,12 +10,14 @@ const events = require('./gameplay/events.js')
 
 $(() => {
   $('#game-start').hide()
+  $('#sign-up-form').hide()
   $('#change-password-form').hide()
   $('#init-change-password-form').hide()
   $('#sign-out-form').hide()
   $('#get-games-form').hide()
   $('#game-area').hide()
   $('#undo').hide()
+  $('#toggle').on('click', events.onToggleClick)
   $('.placer').on('click', events.onPreClick)
   $('#game-start').on('submit', () => {
     $('.placer').off('click')
