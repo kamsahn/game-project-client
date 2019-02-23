@@ -25,6 +25,19 @@ const uiToValue = {
   space8: 8
 }
 
+// maps spaces to adjacent spaces
+const adjSpace = {
+  space0: ['space1', 'space3', 'space4'],
+  space1: ['space0', 'space2', 'space3', 'space4', 'space5'],
+  space2: ['space1', 'space4', 'space5'],
+  space3: ['space0', 'space1', 'space4', 'space6', 'space7'],
+  space4: ['space0', 'space1', 'space2', 'space3', 'space5', 'space6', 'space7', 'space8'],
+  space5: ['space1', 'space2', 'space4', 'space7', 'space8'],
+  space6: ['space3', 'space4', 'space7'],
+  space7: ['space3', 'space4', 'space5', 'space6', 'space8'],
+  space8: ['space4', 'space5', 'space7']
+}
+
 // checks if a win has occured
 // make condition for filled array and no winner
 const gameEndTest = gameBoard => {
@@ -71,6 +84,12 @@ const endDraw = () => {
   return 'draw'
 }
 
+// takes chosen space and picks a random adjacent space
+const randomAdj = space => {
+  const index = adjSpace[space][Math.floor(Math.random() * adjSpace[space].length)]
+  $(`#${index}`).text('O')
+}
+
 // selects current player, places marker and disables boxes
 // adds marker on board to array game board and checks for winner
 // some ui happens on game end
@@ -89,6 +108,7 @@ const updateLogic = space => {
   }
   playerTurn = !playerTurn
   $(space).off('click')
+  randomAdj(space.id)
   return playerTurn ? players[0] : players[1]
 }
 
