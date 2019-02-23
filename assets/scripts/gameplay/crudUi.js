@@ -9,19 +9,43 @@ const createGameSuccess = (responseData) => {
   $('#undo').show()
 }
 
+const quickWinCondition = cells => {
+  if (cells[0] === 'X' && cells[1] === 'X' && cells[2] === 'X') {
+    return 1
+  } else if (cells[3] === 'X' && cells[4] === 'X' && cells[5] === 'X') {
+    return 1
+  } else if (cells[6] === 'X' && cells[7] === 'X' && cells[8] === 'X') {
+    return 1
+  } else if (cells[0] === 'X' && cells[3] === 'X' && cells[6] === 'X') {
+    return 1
+  } else if (cells[1] === 'X' && cells[4] === 'X' && cells[7] === 'X') {
+    return 1
+  } else if (cells[2] === 'X' && cells[5] === 'X' && cells[8] === 'X') {
+    return 1
+  } else if (cells[0] === 'X' && cells[4] === 'X' && cells[8] === 'X') {
+    return 1
+  } else if (cells[2] === 'X' && cells[4] === 'X' && cells[6] === 'X') {
+    return 1
+  } else {
+    return 0
+  }
+}
+
+const quickWinCheck = games => {
+  let gameCount = 0
+  for (let i = 0; i < games.length; i++) {
+    if (games[i].over) {
+      gameCount += quickWinCondition(games[i].cells)
+    }
+  }
+  return gameCount
+}
+
 const formGameStats = (games) => {
-  let gamesWon = 0
   if (games.length === 0) {
     return `${store.user.email} has not played any games yet!`
   }
-  for (let i = 0; i < games.length; i++) {
-    if (games[i].over) {
-      const winX = gameLogic.gameEndTest(games[i].cells)
-      if (winX[1] === 'X') {
-        gamesWon++
-      }
-    }
-  }
+  const gamesWon = quickWinCheck(games)
   const playerStats = (`
     <p>${store.user.email} has won ${gamesWon} of ${games.length} games as player 'X'</p>
     `)
