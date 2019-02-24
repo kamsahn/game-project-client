@@ -54,6 +54,10 @@ const userErrorMessage = () => {
   }, 5000)
 }
 
+const computerThinking = () => {
+  $('#error-messages').text(`Wait for the computer to think`)
+}
+
 const updateBoardComputer = oldSpace => {
   const check = gameLogic.updateLogic(gameLogic.updateLogicComputer(oldSpace))
   if (check[0] === 'win') {
@@ -64,12 +68,15 @@ const updateBoardComputer = oldSpace => {
   updateTurn(check[0], check[1])
 }
 
+// needs something to turn board off until computer is done thinking
 const updateTurn = (player, space) => {
   $('#error-messages').text('')
   $(space).on('click', userErrorMessage)
   if (player === 'O') {
-    $('#user-stats').text(`Player ${player} you're up!`)
-    updateBoardComputer(space)
+    $('#user-stats').text(`Computer ${player} is thinking...`)
+    $('.placer').off('click')
+    $('.placer').on('click', computerThinking)
+    return 'timeout'
   } else {
     $('#user-stats').text(`Player ${player} you're up!`)
   }
@@ -83,7 +90,7 @@ const updateBoard = space => {
   } else if (check === 'draw') {
     return drawMessage()
   }
-  updateTurn(check, space)
+  return updateTurn(check, space)
 }
 
 const undoBoard = space => {
@@ -96,9 +103,11 @@ const undoBoard = space => {
 
 module.exports = {
   updateBoard,
+  updateBoardComputer,
   undoBoard,
   gameRun,
   preClick,
   preUndo,
-  prePreUndo
+  prePreUndo,
+  userErrorMessage
 }

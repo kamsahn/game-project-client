@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields.js')
 const api = require('./api.js')
 const gameplayUi = require('./gameplayUi.js')
+const gameLogic = require('./gameLogic.js')
 const authUi = require('./authUi.js')
 const crudUi = require('./crudUi.js')
 const store = require('../store.js')
@@ -96,7 +97,21 @@ const onSpaceClick = (event) => {
   store.space = event
   $('#undo').off('submit')
   $('#undo').on('submit', onUndo)
-  gameplayUi.updateBoard(event.target)
+  const timeout = gameplayUi.updateBoard(event.target)
+  if (timeout === 'timeout') {
+    setTimeout(() => {
+      $('#error-messages').text('')
+      gameplayUi.updateBoardComputer(event.target)
+      $('.placer').off('click')
+      const allCells = gameLogic.reapplyListeners()
+      allCells[0].forEach(cell => {
+        $(cell).on('click', gameplayUi.userErrorMessage)
+      })
+      allCells[1].forEach(cell => {
+        $(cell).on('click', onSpaceClick)
+      })
+    }, 3000)
+  }
   onUpdateGame(store.currentPlayer, store.spaceIndex, store.game.over)
   // player and space marked and game end state
 }

@@ -132,6 +132,7 @@ const updateLogic = space => {
   return playerTurn ? [players[0], space] : players[1]
 }
 
+// selects a space for the computer to occupy
 const updateLogicComputer = space => {
   return randomAdj(space.id)
 }
@@ -146,10 +147,24 @@ const newGame = () => {
   playerTurn = true
 }
 
+const reapplyListeners = () => {
+  const takenCells = []
+  const emptyCells = []
+  for (let i = 0; i < store.game.cells.length; i++) {
+    if (store.game.cells[i] !== '') {
+      takenCells.push(`#space${i}`)
+    } else {
+      emptyCells.push(`#space${i}`)
+    }
+  }
+  return [takenCells, emptyCells]
+}
+
 module.exports = {
   updateLogic,
   updateLogicComputer,
   undoLogic,
   newGame,
+  reapplyListeners,
   gameEndTest
 }
