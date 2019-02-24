@@ -84,10 +84,35 @@ const endDraw = () => {
   return 'draw'
 }
 
+// modular function to store index and update game on space marked
+const updateCells = (space, player) => {
+  $(`#${space}`).text(player)
+  $(`#${space}`).off('click')
+  store.previousCells = store.game.cells.slice()
+  store.game.cells[uiToValue[space]] = player
+  store.spaceIndex = uiToValue[space]
+}
+
 // takes chosen space and picks a random adjacent space
 const randomAdj = space => {
-  const index = adjSpace[space][Math.floor(Math.random() * adjSpace[space].length)]
-  $(`#${index}`).text('O')
+  const takenArr = []
+  for (let i = 0; i < store.game.cells.length; i++) {
+    if (store.game.cells[i] !== '') {
+      takenArr.push(`space${i}`)
+    }
+  }
+  const availArr = adjSpace[space].filter(mark => !takenArr.includes(mark))
+  const indexAdj = availArr[Math.floor(Math.random() * availArr.length)]
+  if (indexAdj) {
+    updateCells(indexAdj, 'O')
+    return indexAdj
+  } else {
+    const fullBoard = ['space0', 'space1', 'space2', 'space3', 'space4', 'space5', 'space6', 'space7', 'space8']
+    const availFar = fullBoard.filter(mark => !takenArr.includes(mark))
+    const indexFar = availFar[Math.floor(Math.random() * availFar.length)]
+    updateCells(indexFar, 'O')
+    return indexFar
+  }
 }
 
 // selects current player, places marker and disables boxes
@@ -96,10 +121,7 @@ const randomAdj = space => {
 const updateLogic = space => {
   const currentPlayerPass = playerTurn ? players[0] : players[1]
   store.currentPlayer = currentPlayerPass
-  $(space).text(currentPlayerPass)
-  store.previousCells = store.game.cells.slice()
-  store.game.cells[uiToValue[space.id]] = currentPlayerPass
-  store.spaceIndex = uiToValue[space.id]
+  updateCells(space.id, currentPlayerPass)
   const check = gameEndTest(store.game.cells)
   if (check[0]) {
     return endWin(check[1])
@@ -107,9 +129,11 @@ const updateLogic = space => {
     return endDraw()
   }
   playerTurn = !playerTurn
-  $(space).off('click')
-  randomAdj(space.id)
-  return playerTurn ? players[0] : players[1]
+  return playerTurn ? [players[0], space] : players[1]
+}
+
+const updateLogicComputer = space => {
+  return randomAdj(space.id)
 }
 
 // switches the current player back to the previous player
@@ -124,6 +148,7 @@ const newGame = () => {
 
 module.exports = {
   updateLogic,
+  updateLogicComputer,
   undoLogic,
   newGame,
   gameEndTest

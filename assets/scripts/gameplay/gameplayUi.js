@@ -27,7 +27,7 @@ const preUndo = () => {
 const gameRun = () => {
   $('#user-messages').text('')
   $('#error-messages').text('')
-  $('#user-stats').text('New game started! Player X begins.')
+  $('#user-stats').text('New game started! You start as X.')
   gameLogic.newGame()
 }
 
@@ -54,10 +54,25 @@ const userErrorMessage = () => {
   }, 5000)
 }
 
+const updateBoardComputer = oldSpace => {
+  const check = gameLogic.updateLogic(gameLogic.updateLogicComputer(oldSpace))
+  if (check[0] === 'win') {
+    return winMessage(check)
+  } else if (check === 'draw') {
+    return drawMessage()
+  }
+  updateTurn(check[0], check[1])
+}
+
 const updateTurn = (player, space) => {
   $('#error-messages').text('')
   $(space).on('click', userErrorMessage)
-  $('#user-stats').text(`Player ${player}, it's your turn!`)
+  if (player === 'O') {
+    $('#user-stats').text(`Player ${player} you're up!`)
+    updateBoardComputer(space)
+  } else {
+    $('#user-stats').text(`Player ${player} you're up!`)
+  }
 }
 
 const updateBoard = space => {
