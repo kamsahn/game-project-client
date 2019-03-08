@@ -134,7 +134,11 @@ const updateLogic = space => {
 
 // selects a space for the computer to occupy
 const updateLogicComputer = space => {
-  return randomAdj(space.id)
+  if (store.game.cells[4] === '') {
+    return $('#space4')[0]
+  } else {
+    return randomAdj(space.id)
+  }
 }
 
 // switches the current player back to the previous player
