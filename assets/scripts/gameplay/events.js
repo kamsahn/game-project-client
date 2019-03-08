@@ -88,9 +88,19 @@ const onPreClick = (event) => {
   gameplayUi.preClick()
 }
 
-const onPreUndo = (event) => {
-  event.preventDefault()
-  gameplayUi.preUndo()
+// will turn off all space click actions
+// will check which ones have marks and apply the error to those
+// will apply the onSpaceClick to any with an empty text attr
+const reapply = () => {
+  $('.placer').off('click')
+  const allCells = gameLogic.reapplyListeners()
+  // this will check store.game.cells
+  allCells[0].forEach(cell => {
+    $(cell).on('click', gameplayUi.userErrorMessage)
+  })
+  allCells[1].forEach(cell => {
+    $(cell).on('click', onSpaceClick)
+  })
 }
 
 const onSpaceClick = (event) => {
@@ -98,22 +108,24 @@ const onSpaceClick = (event) => {
   $('#undo').off('submit')
   $('#undo').on('submit', onUndo)
   const timeout = gameplayUi.updateBoard(event.target)
-  if (timeout === 'timeout') {
+  if (timeout) {
     setTimeout(() => {
-      $('#error-messages').text('')
-      gameplayUi.updateBoardComputer(event.target)
-      $('.placer').off('click')
-      const allCells = gameLogic.reapplyListeners()
-      allCells[0].forEach(cell => {
-        $(cell).on('click', gameplayUi.userErrorMessage)
-      })
-      allCells[1].forEach(cell => {
-        $(cell).on('click', onSpaceClick)
-      })
-    }, 3000)
+      $('#user-messages').text('')
+      if ($('#user-stats').text === 'Computer O is thinking...') {
+        $('#user-stats').text('')
+      }
+      // if undo has not been clicked
+      if (!store.undoHit && !store.newGame) {
+        gameplayUi.updateBoardComputer(event.target)
+      }
+      reapply()
+      store.undoHit = false
+      store.undoReady = false
+    }, 1500)
   }
   onUpdateGame(store.currentPlayer, store.spaceIndex, store.game.over)
   // player and space marked and game end state
+  store.newGame = false
 }
 
 const onGameStart = (event) => {
@@ -127,20 +139,21 @@ const onGameStart = (event) => {
   onCreateGame(event, formData)
 }
 
+// if there is something on the board and your turn to undo will run
+// only works once. will hide after click
 const onUndo = (event) => {
   event.preventDefault()
   const isBlank = elem => {
     return elem === ''
   }
-  if (!store.game.cells.every(isBlank)) {
+  if (!store.game.cells.every(isBlank) && store.undoReady) {
+    store.undoHit = true
     gameplayUi.undoBoard(store.space.target)
+    // targets the space that you want to undo
     onUpdateGame('', store.spaceIndex, store.over)
-    $(store.space.target).off('click')
-    $(store.space.target).on('click', onSpaceClick)
-    $('#undo').off('submit')
-    $('#undo').on('submit', onPreUndo)
+    reapply()
   } else {
-    gameplayUi.prePreUndo()
+    gameplayUi.preUndo()
   }
 }
 

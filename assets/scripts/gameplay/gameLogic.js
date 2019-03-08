@@ -166,5 +166,6 @@ module.exports = {
   undoLogic,
   newGame,
   reapplyListeners,
-  gameEndTest
+  gameEndTest,
+  playerTurn
 }

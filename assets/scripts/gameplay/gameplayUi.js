@@ -10,15 +10,8 @@ const preClick = () => {
   }, 5000)
 }
 
-const prePreUndo = () => {
-  $('#error-messages').text('Make a move before you undo!')
-  setTimeout(() => {
-    $('#error-messages').text('')
-  }, 5000)
-}
-
 const preUndo = () => {
-  $('#error-messages').text('Make another move before you undo again!')
+  $('#error-messages').text(`Can't undo right now!`)
   setTimeout(() => {
     $('#error-messages').text('')
   }, 5000)
@@ -73,10 +66,11 @@ const updateTurn = (player, space) => {
   $('#error-messages').text('')
   $(space).on('click', userErrorMessage)
   if (player === 'O') {
+    store.undoReady = true
     $('#user-stats').text(`Computer ${player} is thinking...`)
     $('.placer').off('click')
     $('.placer').on('click', computerThinking)
-    return 'timeout'
+    return true
   } else {
     $('#user-stats').text(`Player ${player} you're up!`)
   }
@@ -95,10 +89,14 @@ const updateBoard = space => {
 
 const undoBoard = space => {
   $('#user-messages').text('')
+  $('#error-messages').text('')
   $(space).text('')
   store.game.cells = store.previousCells.slice()
+  // reverts store.game.cells back to the previous turn
   gameLogic.undoLogic(store.currentPlayer)
+  // currentPlayer is whatever player just took a marker off the board
   $('#user-stats').text(`Player ${store.currentPlayer}, it's your turn!`)
+  $('#undo').hide()
 }
 
 module.exports = {
@@ -108,6 +106,5 @@ module.exports = {
   gameRun,
   preClick,
   preUndo,
-  prePreUndo,
   userErrorMessage
 }
