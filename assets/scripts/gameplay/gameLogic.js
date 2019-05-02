@@ -132,8 +132,25 @@ const updateLogic = space => {
   return playerTurn ? [players[0], space] : players[1]
 }
 
+// function looks for a chacne to block the player
+const blockPlayer = () => {
+  const row = [0, 1, 2]
+  const rowX = [null, null, null]
+  row.forEach(i => {
+    if (store.game.cells[i] !== '') {
+      rowX[i] = (store.game.cells[i])
+    }
+  })
+  if (rowX.filter(x => x === 'X').length === 2) {
+    console.log(2)
+  }
+  // if rowX has two X's in it, return the last space, if null
+  // make an object of all arrays of winning combos, check each
+}
+
 // selects a space for the computer to occupy
 const updateLogicComputer = space => {
+  blockPlayer()
   if (store.game.cells[4] === '') {
     return $('#space4')[0]
   } else {
