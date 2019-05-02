@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Sam's Tic Tac Toe</title>
+  <link rel="shortcut icon" type="image/x-icon" href="public/Tic-Tac-Toe-Game.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>Tic Tac Toe</h1>
+  <div class="container">
+    <div class="form-wrap row">
+      <header class="col-12">
+        <form class="my-1 col-12" id="sign-in-form">
+          <input name="credentials[email]" type="text" placeholder="email here">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input class="button" type="submit" value="Sign In">
+        </form>
+        <form class="my-1 col-12" id="sign-up-form">
+          <input name="credentials[email]" type="text" placeholder="email here">
+          <input name="credentials[password]" type="password" placeholder="password">
+          <input name="credentials[password_confirmation]" type="password" placeholder="password confirm">
+          <input class="button" type="submit" value="Sign Up">
+        </form>
+        <p id="sign-toggle">New here? <span id="toggle">Sign Up</span></p>
+        <form class="my-1 col-12" id="init-change-password-form">
+          <input class="button" type="submit" value="Change Password">
+        </form>
+        <form class="my-1 col-12" id="change-password-form">
+          <input class="ch-pass-area" name="passwords[old]" type="password" placeholder="old password">
+          <input class="ch-pass-area" name="passwords[new]" type="password" placeholder="new password">
+          <input id="ch-pass-button" class="button" type="submit" value="Change Password">
+        </form>
+        <form class="my-1 col-12" id="get-games-form">
+          <input class="button" type="submit" value="Get Games">
+        </form>
+        <form class="my-1 col-12" id="sign-out-form">
+          <input class="button" type="submit" value="Sign Out">
+        </form>
+        <p class="message-board" id="api-message"></p>
+      </header>
+    </div>
+    <div class="row">
+      <div class="col-5"></div>
+      <div class="col-2 flexbox">
+        <form id="game-start">
+          <input class="start-btn button" type="submit" value="Start">
+        </form>
+      </div>
+      <div class="col-5"></div>
+    </div>
+    <div class="row" id="game-area">
+      <div class="col-12 message-board-wrap">
+        <p class="message-board" id="user-messages"></p>
+        <p class="message-board" id="user-stats"></p>
+        <p class="message-board" id="error-messages"></p>
+        <p class="message-board" id="crud-message"></p>
+      </div>
+      <div class="embed-responsive embed-responsive-1by1 col-12 game-area">
+        <div class="embed-responsive-item game-board">
+          <div class="col-4 placer box" id="space0"></div>
+          <div class="col-4 placer box" id="space1"></div>
+          <div class="col-4 placer box" id="space2"></div>
+          <div class="col-4 placer box" id="space3"></div>
+          <div class="col-4 placer box" id="space4"></div>
+          <div class="col-4 placer box" id="space5"></div>
+          <div class="col-4 placer box" id="space6"></div>
+          <div class="col-4 placer box" id="space7"></div>
+          <div class="col-4 placer box" id="space8"></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-5"></div>
+      <div class="col-2 flexbox">
+        <form id="undo">
+          <input class="undo-btn button" type="submit" value="Undo">
+        </form>
+      </div>
+      <div class="col-5"></div>
+    </div>
+  </div>
+  <footer class ="my-1" id="footer">
+  <p>Copyright 2019 Created with <span class="hearts">&hearts;</span> by <a href="https://www.linkedin.com/in/samuel-j-kahn/" class="name">Sam</a></p>
+</footer>
+</body>
+
+</html>
