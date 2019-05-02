@@ -49,7 +49,8 @@ Following the suggested schedule, I first created a basic game board that a user
 ## Unsolved Issues:
 
 Given more time on this project, I would add the following features to my app:
-- Dual sign in
-- Multi-device game support
-- prevent simultaneous sign in issues
-- Additional media queries to account for more sizes
+1. [ ] Dual sign in
+1. [ ] Multi-device game support
+1. [ ] prevent simultaneous sign in issues
+1. [ ] Additional media queries to account for more sizes
+1. [x] AI player mode
